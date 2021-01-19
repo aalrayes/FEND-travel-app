@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    justify-content: start;
+    padding: 3px 40px;
+    border: 1px solid #ededed;
+    div{
+        color: black;
+        font-weight: bold;
+        padding:5px 0;
+        text-align: center;   
+        fill: white; 
+    }
+}
