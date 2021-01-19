@@ -1,4 +1,3 @@
-node_moduals
 .env
-.dist
+dist
 node_modules
