@@ -1,3 +1,4 @@
+let trips = {};
 let d = new Date();
 let newDate = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
 
@@ -5,11 +6,10 @@ let newDate = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
 const weatherbit_API_url ="https://api.weatherbit.io/v2.0/forecast/daily?";
 const weatherbit_API_type = ['current','forecast'];
 const weatherbit_API_key='&key=ea7555658fe34b60a2c63e087a520673';
-const days = '&days=7'
+const days = '&days=7';
 // Geonames API
 const geonames_API_url ="http://api.geonames.org/searchJSON?name_equals=";
 const geonames_API_key="&username=aalrayes100x";
-
 // Pixabay API
 const pixabay_API_url = "https://pixabay.com/api/";
 const pixabay_API_key = "?key=19924293-20d70f0423878e94f2469f599";
@@ -20,6 +20,7 @@ const pixabay_API_key = "?key=19924293-20d70f0423878e94f2469f599";
 function init(e) {
   e.preventDefault();
   const city = document.getElementById('input').value;
+  const days = document.getElementById('date').value;
   console.log(city)
   getGeoname(geonames_API_url,city,geonames_API_key)
     .then(function (data) 
