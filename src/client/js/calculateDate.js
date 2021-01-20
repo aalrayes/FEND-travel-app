@@ -1,6 +1,5 @@
 const months = ['01','02','03','04',"05","06","07",'08','09','10','11','12'];
-function calculateDaysToDate(date2){
-    const date1 = getNewDate();
+function calculateDaysToDate(date1,date2){
     console.log(date1);
     console.log(date2);
     var time_diff = date2.getTime() - date1.getTime(); 
@@ -18,6 +17,7 @@ function calculateDaysToDate(date2){
         let newDate = months[d.getMonth()] + '/' + d.getDate()+ '/' + d.getFullYear();
         const date1 = new Date(newDate);
         return date1;
-        }
-
+      }
+    
     export {calculateDaysToDate}
+    export {getNewDate}

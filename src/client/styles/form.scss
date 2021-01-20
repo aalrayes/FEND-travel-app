@@ -32,31 +32,31 @@ form {
         cursor: pointer;
     
         &:hover{
-         background-color: rgb(34, 34, 66)
+         background-color: rgb(16, 16, 31)
         }
     
     }
 }
-#location{
+.location{
     border-right:1px solid #ededed;
     padding-right: 25px;
+    padding-left: 25px;
 }
 
 #date{
     border-right: 1px solid #ededed;
     padding-right: 25px;
+    padding-left: 25px;
 }
 #booking_container{
     display: flex;
     justify-content: space-between;
     width: 50%;
-    height: 15vh;
+    height: fit-content;
     background-color: white;
     margin-top: -150px;
     border-radius: 8px;
-    -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
-    box-shadow: 0 8px 6px -6px black;
+   
 }
 
 
