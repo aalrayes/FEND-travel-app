@@ -44,6 +44,7 @@ npm run build-prod
 npm run express
 ```
 ## Test
+make sure that the express server is off
 ```bash
 npm run test
 ```
