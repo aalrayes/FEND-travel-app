@@ -8,13 +8,10 @@ import './styles/trip.scss'
 import './styles/loader.scss'
 import './styles/media_queries.scss'
 import {init} from "./js/app"
-import {startServiceWorker} from "./js/serviceWorker"
-
 const submit =  document.getElementById('submit');
 submit.addEventListener('click', e=> {
     init(e);
 });
 export{
-    init,
-    startServiceWorker,
+    init
 }
