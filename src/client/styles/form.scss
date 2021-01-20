@@ -1,63 +1,58 @@
-$primery : #2B2C54;
+$primery: #2b2c54;
 form {
-    padding: 40px;
-    display: flex;
-    justify-content: space-evenly;
+  padding: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  input {
+    padding: 10px 10px;
+    border: 1px solid #adabab;
+    border-radius: 3px;
     width: 100%;
-    input {
-        padding: 10px 10px;
-        border: 1px solid #adabab;
-        border-radius: 3px;
-        width: 100%;
-        line-height: 16px;
-        margin: 10px 0;
-        font-size: large;
-        background-color:white;
-    
-        &::placeholder{
-            color: rgb(37, 36, 36);
-        }
-    }
-    button{
-        padding: 10px;
-        height: 50px;
-        width: 100px;
-        border: 2px solid rgb(255, 255, 255);
-        border-radius: 5px;
-        line-height: 16px;
-        margin: 25px 0;
-        font-size: medium;
-        background-color:$primery;
-        color: white;
-        cursor: pointer;
-    
-        &:hover{
-         background-color: rgb(16, 16, 31)
-        }
-    
-    }
-}
-.location{
-    border-right:1px solid #ededed;
-    padding-right: 25px;
-    padding-left: 25px;
-}
-
-#date{
-    border-right: 1px solid #ededed;
-    padding-right: 25px;
-    padding-left: 25px;
-}
-#booking_container{
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    height: fit-content;
+    line-height: 16px;
+    margin: 10px 0;
+    font-size: large;
     background-color: white;
-    margin-top: -150px;
-    border-radius: 8px;
-   
+
+    &::placeholder {
+      color: rgb(37, 36, 36);
+    }
+  }
+  button {
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    line-height: 16px;
+    margin: 25px 0;
+    font-size: medium;
+    background-color: $primery;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(16, 16, 31);
+    }
+  }
+}
+.location {
+  border-right: 1px solid #ededed;
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
-
-
+#date {
+  border-right: 1px solid #ededed;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+#booking_container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  height: fit-content;
+  background-color: white;
+  margin-top: -150px;
+  border-radius: 8px;
+}
