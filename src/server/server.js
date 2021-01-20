@@ -45,7 +45,6 @@ app.post('/pixabay',(req, res)=>{
 })
 
 app.get('/load',function(req,res){
-
     res.send(projectData);
 });
 

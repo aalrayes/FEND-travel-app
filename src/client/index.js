@@ -14,5 +14,5 @@ submit.addEventListener('click', e=> {
 });
 export{
     init,
-    startServiceWorker
+    startServiceWorker,
 }

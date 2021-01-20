@@ -1,5 +1,4 @@
-import { container } from "webpack";
-
+  import {calculateDaysToDate} from './calculateDate'
 let trips = {};
 const months = ['01','02','03','04',"05","06","07",'08','09','10','11','12'];
 
@@ -33,7 +32,7 @@ function init(e) {
         country: data.geonames[0].countryName
       });
 
-      getWeatherBit(weatherbit_API_url,data.geonames[0].lng,data.geonames[0].lat,trip_date,weatherbit_API_key)
+      getWeatherBit(weatherbit_API_url,data.geonames[0].lng,data.geonames[0].lat,trip_date,daysToDate,weatherbit_API_key)
       .then(function(weatherData){
         let descriptionFromAPI;
         if(daysToDate > 7){
@@ -43,28 +42,29 @@ function init(e) {
         }
 
         postData('http://localhost:3000/weatherbit', { 
-          low_temp:weatherData.data[0].low_temp,
+          low_temp:weatherData.data[0].min_temp,
           max_temp: weatherData.data[0].max_temp,
           description: descriptionFromAPI
         });
-        generateContent(city,trip_date)
+        generateContent(city,trip_date,daysToDate);
+        
       })
-
       getPixabay(pixabay_API_url,city,pixabay_API_key)
       .then(function(data)
       {
         postData('http://localhost:3000/pixabay', { 
           img_url: data.hits[0].webformatURL
         });
-
-      });
-
+       
+      }); 
     })
 }
-const getWeatherBit = async (url, lng,lat,days,key) => {
-  let dayOfTrip = new Date(days);
+
+
+const getWeatherBit = async (url, lng,lat,date,daysToDate,key) => {
   let res;
-  if(calculateDaysToDate(dayOfTrip)<=7){
+  let dayOfTrip = new Date(date);
+  if(daysToDate<=7){
   res = await fetch(url +weatherbit_API_type[1]+'&lat='+lat+'&lon='+lng+key);
   }else{
     let startDate = '&start_day='+months[dayOfTrip.getMonth()]+"-"+dayOfTrip.getDate();
@@ -117,43 +117,18 @@ const postData = async (url = '', data = {}) => {
   }
 }
 
-function getNewDate(){
-let d = new Date();
-let newDate = months[d.getMonth()] + '/' + d.getDate()+ '/' + d.getFullYear();
-const date1 = new Date(newDate);
-return date1;
-}
-
-function calculateDaysToDate(date2){
-const date1 = getNewDate();
-console.log(date1);
-console.log(date2);
-var time_diff = date2.getTime() - date1.getTime(); 
-console.log("time_diff:")
-console.log(time_diff)
-const daysto= time_diff / (1000 * 3600 * 24); 
-
-console.log(daysto);
-
-return daysto;
-
-}
-
 //done 
-const generateContent = async (city,date) => {
+const generateContent = async (city,date,daysToDate) => {
+
   const request = await fetch('http://localhost:3000/load');
   try {
     const projectData = await request.json();
-
-    console.log(projectData.max_temp[0])
-
     // data from project data 
     const country = projectData.country;
     const max_temp = projectData.max_temp;
     const low_temp = projectData.low_temp;
     const description = projectData.description;
-    const dateOfTrip = new Date(date);
-    const daysUntilTrip = calculateDaysToDate(dateOfTrip);
+    const daysUntilTrip = daysToDate;
 
     // refrences to UI
     const title_container = document.getElementsByClassName('trip_title')[0];
@@ -161,14 +136,16 @@ const generateContent = async (city,date) => {
     const daysToTrip_countainer = document.getElementsByClassName('trip_days_remaining')[0];
     const weather_container = document.getElementsByClassName('trip_weather')[0];
     const image = document.getElementById('img').setAttribute('src',projectData.img_url);
+    const trip_container = document.getElementsByClassName('trip')[0];
+    trip_container.classList.add('show');
     
     // changing UI
-    title_container.innerHTML = 'Destination: \n \n'+country+", "+city +" on "+date;
-    date_container.innerHTML = date;
+    title_container.innerHTML = 'Destination: \n \n'+country+", "+city;
+    date_container.innerHTML = 'Date: \n \n'+date;
     daysToTrip_countainer.innerHTML =' Days remaining until your trip \n \n'+daysUntilTrip;
-    // weather_container.innerHTML ='Max tempreature:\n \n'+max_temp+'\n \n Lowest Tempreture: \n \n'+low_temp+" \n \n"+description;
-
-    // trip_container.style.display = 'felx';
+    weather_container.innerHTML ='Typical weather for then: \n \n High:'+max_temp+', Low:'+low_temp+"\n \n"+description;
+    
+    
 
   
   } catch (error) {
