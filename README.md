@@ -1,6 +1,6 @@
 # Travel app - FEND Capstone
 
-Evaluate News NLP is a website used to evaluate the sentiment of text, using meaningCloud 's Sentiment api.
+The Travel app is the final project of the udacity FEND Program. this project aims at connecting all that i have learned from the past projects into one project
 
 the point of this project was to:
 
@@ -8,10 +8,10 @@ the point of this project was to:
 
 - Have separate dev and prod configurations for Webpack
 
--  Have the developer environment set up with the Webpack dev server
+- Have the developer environment set up with the Webpack dev server
 
-- Make one request to the meaningCloud API
-
+- Make three requests to three different API's : `Geonames` - `weather bit` - `pixabey`
+- using outputs from API's as input for others 
 - Use Sass for styling
 
 - Minify js and styles in the production environment
@@ -41,7 +41,7 @@ npm run build-prod
 ```
 - Start the express server. `Port: 3000`
 ```bash
-npm run start
+npm run express
 ```
 ## Test
 ```bash
