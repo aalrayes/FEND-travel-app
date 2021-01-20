@@ -52,7 +52,7 @@
         </section> -->
 
         <section id="hero">
-            <img src="src\client\media\panorama-2117310_1920.jpg" alt="">
+            <img src="src\client\media\panorama.jpg" alt="">
         </section>
         
         <section id="booking_container">
@@ -60,7 +60,7 @@
             <form>
 
                 <div id="location">
-                    <label for="input">Location</label>
+                    <label for="input">Destination</label>
                     <input type="text" name="input" id="input" required placeholder="Enter the city you want to visit">
                 </div>
 
@@ -77,7 +77,29 @@
         </section>
 
             <section id=results >
-        
+                <div class="trip">
+                    <img src="" id="img" alt="">
+                    <div class="trip_summery">
+                       
+                        <div class="trip_title">
+                            
+                        </div>
+                      
+                        <div class="trip_date">
+                            
+                        </div>
+                        
+                        <div class="trip_days_remaining">
+                            
+                        </div>
+                        <div class="trip_weather">
+                           
+                        </div>
+                        </div>
+                </div>
+
+
+
 
             </section>
 
@@ -93,7 +115,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script>
-    
+        let d = new Date();
+        const months = ['01','02','03','04',"05","06","07",'08','09','10','11','12'];
+        let newDate = months[d.getMonth()] + '/' + d.getDate()+ '/' + d.getFullYear();
+        const date1 = new Date(newDate);
+        console.log(date1);
     // displays date picker
     $('#datepicker').daterangepicker({
     "singleDatePicker": true,
@@ -134,19 +160,13 @@
     },
     "alwaysShowCalendars": true,
     "parentEl": "date",
-    "startDate": "01/13/2021",
+    "startDate": date1,
     "endDate": "01/19/2021",
-    "minDate": "jam"
+    "minDate": date1
 }, function(start, end, label) {
   console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 });
-    // Check that service workers are supported
-    if ('serviceWorker' in navigator) {
-      // Use the window load event to keep the page load performant
-          window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-    }
+    
     </script>
 </body>
 </html>

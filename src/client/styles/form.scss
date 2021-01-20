@@ -6,7 +6,7 @@ form {
     width: 100%;
     input {
         padding: 10px 10px;
-        border: 1px solid #141414;
+        border: 1px solid #adabab;
         border-radius: 3px;
         width: 100%;
         line-height: 16px;
@@ -36,6 +36,27 @@ form {
         }
     
     }
+}
+#location{
+    border-right:1px solid #ededed;
+    padding-right: 25px;
+}
+
+#date{
+    border-right: 1px solid #ededed;
+    padding-right: 25px;
+}
+#booking_container{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    height: 15vh;
+    background-color: white;
+    margin-top: -150px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
 }
 
 

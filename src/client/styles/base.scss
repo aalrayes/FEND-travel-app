@@ -24,7 +24,6 @@ section {
     max-width: 100%;
     margin: 50px auto;
     color: black;
-    font-size: large;
    &:last-child{
        display: flex;
        margin-top: 0;
@@ -54,19 +53,6 @@ section {
    }  
 }
 
-#booking_container{
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    height: 20vh;
-    background-color: white;
-    margin-top: -200px;
-    border-radius: 8px;
-    -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
-    box-shadow: 0 8px 6px -6px black;
-    
-}
 
 
 
