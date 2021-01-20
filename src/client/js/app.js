@@ -1,5 +1,5 @@
-  import {calculateDaysToDate} from './calculateDate'
-let trips = {};
+import {calculateDaysToDate} from './calculateDate'
+let trips = [];
 const months = ['01','02','03','04',"05","06","07",'08','09','10','11','12'];
 
 // Weather Bit API
@@ -117,7 +117,7 @@ const postData = async (url = '', data = {}) => {
   }
 }
 
-//done 
+// function to generate the ui 
 const generateContent = async (city,date,daysToDate) => {
 
   const request = await fetch('http://localhost:3000/load');
@@ -130,6 +130,8 @@ const generateContent = async (city,date,daysToDate) => {
     const description = projectData.description;
     const daysUntilTrip = daysToDate;
 
+    console.log(projectData);
+
     // refrences to UI
     const title_container = document.getElementsByClassName('trip_title')[0];
     const date_container = document.getElementsByClassName('trip_date')[0];
@@ -140,6 +142,7 @@ const generateContent = async (city,date,daysToDate) => {
     trip_container.classList.add('show');
     
     // changing UI
+   
     title_container.innerHTML = 'Destination: \n \n'+country+", "+city;
     date_container.innerHTML = 'Date: \n \n'+date;
     daysToTrip_countainer.innerHTML =' Days remaining until your trip \n \n'+daysUntilTrip;
